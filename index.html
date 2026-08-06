@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SYRIX VISION COMPANY | Building the Future Through Technology</title>
+<meta name="description" content="SYRIX VISION COMPANY is a technology company and international community led by Dawens (Inconnu Boy Sensei), CEO & Co-Founder, DsPrimis, Co-Founder, and Klivens (Xenix), Chief Product Officer (CPO). We bring together developers, innovators and digital creators worldwide to build real, impactful technology projects.">
+<meta name="keywords" content="SYRIX VISION COMPANY, SYRIX VISION, Dawens, Inconnu Boy Sensei, DsPrimis, Klivens, Xenix, CEO SYRIX, CPO SYRIX, developer community, tech company, open source, web development, AI, cybersecurity, blockchain">
+<meta name="author" content="SYRIX VISION COMPANY">
+
+<meta property="og:title" content="SYRIX VISION COMPANY | Building the Future Through Technology">
+<meta property="og:description" content="A technology company and international community founded by Dawens (Inconnu Boy Sensei), CEO, DsPrimis, Co-Founder, and Klivens (Xenix), CPO. Learn, collaborate, innovate.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://files.catbox.moe/2kq4m0.jpg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "SYRIX VISION COMPANY",
+  "alternateName": ["SYRIX VISION", "SYRIX"],
+  "url": "https://syrixvision.com",
+  "logo": "https://files.catbox.moe/2kq4m0.jpg",
+  "foundingDate": "2026-07",
+  "description": "SYRIX VISION COMPANY is a technology company and international community bringing together developers, innovators and digital creators to build real, impactful projects.",
+  "email": "syrixcompany@gmail.com",
+  "sameAs": [
+    "https://github.com/SYRIX-COMPANY",
+    "https://whatsapp.com/channel/0029VbCth9A3rZZjleAsOd2m",
+    "https://www.youtube.com/@syrixcompanyvision",
+    "https://www.instagram.com/syrixcompany"
+  ],
+  "founder": [
+    { "@type": "Person", "name": "Dawens", "alternateName": "Inconnu Boy Sensei", "jobTitle": "Chief Executive Officer (CEO) & Co-Founder", "sameAs": "https://github.com/INCONNU-BOY" },
+    { "@type": "Person", "name": "DsPrimis", "jobTitle": "Co-Founder", "sameAs": "https://github.com/DEVPRIMIS" }
+  ],
+  "employee": [
+    { "@type": "Person", "name": "Dawens", "alternateName": "Inconnu Boy Sensei", "jobTitle": "Chief Executive Officer (CEO) & Co-Founder", "sameAs": "https://github.com/INCONNU-BOY" },
+    { "@type": "Person", "name": "DsPrimis", "jobTitle": "Co-Founder", "sameAs": "https://github.com/DEVPRIMIS" },
+    { "@type": "Person", "name": "Klivens", "alternateName": "Xenix", "jobTitle": "Chief Product Officer (CPO)" }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --black:#0A0B0D;
+    --near-black:#111318;
+    --panel:#16181D;
+    --white:#FFFFFF;
+    --off-white:#F5F5F6;
+    --gray-100:#C7C9CE;
+    --gray-300:#9296A0;
+    --gray-500:#6B6F79;
+    --border-dark:rgba(255,255,255,0.10);
+    --border-light:#E4E4E6;
+    --radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--near-black);
+    background:var(--white);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{font-family:'Manrope',sans-serif;font-weight:800;letter-spacing:-0.02em;}
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+  svg{display:block;}
+  .container{max-width:1180px;margin:0 auto;padding:0 24px;}
+  section{padding:130px 0;}
+  @media(max-width:768px){ section{padding:80px 0;} }
+  ::selection{background:var(--black);color:var(--white);}
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important;animation-iteration-count:1 !important;transition-duration:0.001ms !important;scroll-behavior:auto !important;}
+  }
+
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.is-visible{opacity:1;transform:translateY(0);}
+
+  /* ---- Grain overlay ---- */
+  .grain{
+    position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.035;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ---- Preloader / intro ---- */
+  #intro{
+    position:fixed;inset:0;background:var(--black);z-index:10000;
+    display:flex;align-items:center;justify-content:center;flex-direction:column;
+    transition:transform .9s cubic-bezier(.77,0,.18,1), visibility .9s;
+  }
+  #intro.hide{transform:translateY(-100%);}
+  #intro img{width:74px;height:74px;border-radius:16px;margin-bottom:22px;opacity:0;animation:fadeUp .8s ease forwards .1s;}
+  #intro .intro-word{overflow:hidden;}
+  #intro h1{
+    color:var(--white);font-size:clamp(1.6rem,4vw,2.6rem);letter-spacing:-0.02em;
+    opacity:0;animation:fadeUp .8s ease forwards .35s;
+  }
+  #intro .intro-line{width:0;height:1px;background:var(--gray-500);margin-top:26px;animation:growLine 1s ease forwards .8s;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes growLine{from{width:0;}to{width:120px;}}
+  body.locked{overflow:hidden;}
+
+  /* ---------- Navbar ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(10,11,13,0.72);
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid transparent;transition:border-color .3s ease;
+  }
+  header.scrolled{border-bottom-color:var(--border-dark);}
+  nav{display:flex;align-items:center;justify-content:space-between;max-width:1180px;margin:0 auto;padding:16px 24px;}
+  .logo{font-family:'Manrope',sans-serif;font-weight:800;font-size:1.05rem;color:var(--white);display:flex;align-items:center;gap:10px;}
+  .logo img{width:32px;height:32px;border-radius:8px;object-fit:cover;}
+  .nav-links{display:flex;gap:32px;align-items:center;}
+  .nav-links a{font-size:.9rem;font-weight:600;color:var(--gray-300);transition:color .2s ease;}
+  .nav-links a:hover{color:var(--white);}
+  .nav-cta{background:var(--white);color:var(--black) !important;padding:10px 20px;border-radius:10px;font-weight:700;font-size:.86rem;transition:transform .2s ease;}
+  .nav-cta:hover{transform:translateY(-1px);}
+  .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;}
+  .nav-toggle span{display:block;width:22px;height:2px;background:var(--white);margin:5px 0;border-radius:2px;}
+  @media(max-width:860px){
+    .nav-links{position:fixed;top:66px;left:0;right:0;background:var(--black);flex-direction:column;padding:24px;gap:18px;border-bottom:1px solid var(--border-dark);transform:translateY(-130%);transition:transform .3s ease;}
+    .nav-links.open{transform:translateY(0);}
+    .nav-toggle{display:block;}
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 30px;border-radius:10px;font-weight:700;font-size:.95rem;cursor:pointer;border:1.5px solid transparent;transition:transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;}
+  .btn-primary-dark{background:var(--white);color:var(--black);}
+  .btn-primary-dark:hover{transform:translateY(-2px);}
+  .btn-outline-dark{border-color:rgba(255,255,255,0.28);color:var(--white);}
+  .btn-outline-dark:hover{border-color:var(--white);transform:translateY(-2px);}
+  .btn-primary-light{background:var(--black);color:var(--white);}
+  .btn-primary-light:hover{transform:translateY(-2px);}
+  .btn-outline-light{border-color:var(--border-light);color:var(--near-black);}
+  .btn-outline-light:hover{border-color:var(--near-black);transform:translateY(-2px);}
+
+  /* ---------- Hero (dark, full) ---------- */
+  .hero{min-height:100vh;background:var(--black);color:var(--white);display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;padding:140px 0 80px;}
+  .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:40%;background:linear-gradient(to top, rgba(255,255,255,0.03), transparent);pointer-events:none;}
+  .hero-eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--gray-300);font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:28px;}
+  .hero-eyebrow::before{content:"";width:24px;height:1px;background:var(--gray-500);}
+  .hero h1{font-size:clamp(2.6rem,7vw,5.4rem);line-height:1.02;max-width:920px;}
+  .hero h1 em{font-style:normal;color:var(--gray-500);}
+  .hero .lead{color:var(--gray-300);font-size:1.15rem;max-width:560px;margin:32px 0 40px;}
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:64px;}
+  .hero-meta{display:flex;gap:0;border-top:1px solid var(--border-dark);padding-top:28px;flex-wrap:wrap;}
+  .hero-meta-item{flex:1;min-width:150px;padding-right:24px;}
+  .hero-meta-item strong{display:block;font-family:'Manrope',sans-serif;color:var(--white);font-size:1rem;margin-bottom:4px;}
+  .hero-meta-item span{color:var(--gray-500);font-size:.82rem;}
+  .scroll-cue{position:absolute;bottom:36px;right:24px;display:flex;flex-direction:column;align-items:center;gap:10px;color:var(--gray-500);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;}
+  .scroll-cue .line{width:1px;height:44px;background:var(--gray-500);position:relative;overflow:hidden;}
+  .scroll-cue .line::after{content:"";position:absolute;top:-100%;left:0;width:100%;height:100%;background:var(--white);animation:scrollDown 1.8s ease-in-out infinite;}
+  @keyframes scrollDown{0%{top:-100%;}60%{top:100%;}100%{top:100%;}}
+  @media(max-width:768px){.scroll-cue{display:none;}}
+
+  /* ---------- Section heading ---------- */
+  .eyebrow-line{display:inline-flex;align-items:center;gap:9px;color:var(--gray-500);font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:18px;}
+  .eyebrow-line::before{content:"";width:22px;height:1px;background:var(--gray-500);}
+  .section-head{max-width:640px;margin:0 auto 64px;text-align:center;}
+  .section-head h2{font-size:clamp(1.9rem,3.6vw,2.7rem);margin-bottom:16px;}
+  .section-head p{color:var(--gray-300);font-size:1.04rem;}
+  .light-section .eyebrow-line, .light-section .section-head p{color:var(--gray-500);}
+  .light-section h2{color:var(--near-black);}
+
+  /* ---------- About (light) ---------- */
+  .about{background:var(--white);}
+  .about-grid{display:grid;grid-template-columns:0.95fr 1.05fr;gap:64px;align-items:start;}
+  @media(max-width:900px){.about-grid{grid-template-columns:1fr;}}
+  .about-grid h2{font-size:clamp(1.9rem,3.6vw,2.5rem);margin-bottom:26px;color:var(--near-black);}
+  .about-grid p{color:var(--gray-500);margin-bottom:18px;font-size:1.02rem;}
+  .about-grid strong{color:var(--near-black);}
+  .about-panel{background:var(--off-white);border-radius:var(--radius);padding:8px 32px;border:1px solid var(--border-light);}
+  .about-panel .founder-row{display:flex;gap:16px;align-items:center;padding:22px 0;border-bottom:1px solid var(--border-light);}
+  .about-panel .founder-row:last-child{border-bottom:none;}
+  .founder-avatar{width:46px;height:46px;border-radius:11px;flex-shrink:0;background:var(--near-black);color:var(--white);display:flex;align-items:center;justify-content:center;font-weight:800;font-family:'Manrope',sans-serif;font-size:.9rem;}
+  .founder-row h4{font-size:1rem;margin-bottom:2px;color:var(--near-black);}
+  .founder-row span{font-size:.84rem;color:var(--gray-500);font-weight:600;}
+
+  /* ---------- Card grid ---------- */
+  .card-grid{display:grid;gap:1px;background:var(--border-light);border:1px solid var(--border-light);border-radius:var(--radius);overflow:hidden;}
+  .card-grid.cols-3{grid-template-columns:repeat(3,1fr);}
+  .card-grid.cols-5{grid-template-columns:repeat(5,1fr);}
+  @media(max-width:960px){.card-grid.cols-3,.card-grid.cols-5{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.card-grid.cols-3,.card-grid.cols-5{grid-template-columns:1fr;}}
+  .card{background:var(--white);padding:34px 28px;transition:background .25s ease;}
+  .card:hover{background:var(--off-white);}
+  .card-icon{width:40px;height:40px;margin-bottom:20px;color:var(--near-black);}
+  .card h3{font-size:1.04rem;margin-bottom:8px;color:var(--near-black);}
+  .card p{color:var(--gray-500);font-size:.9rem;}
+
+  .dark-cards .card-grid{background:var(--border-dark);border-color:var(--border-dark);}
+  .dark-cards .card{background:var(--near-black);}
+  .dark-cards .card:hover{background:var(--panel);}
+  .dark-cards .card-icon{color:var(--white);}
+  .dark-cards .card h3{color:var(--white);}
+  .dark-cards .card p{color:var(--gray-300);}
+
+  .mission{background:var(--off-white);}
+  .domains{background:var(--black);color:var(--white);}
+  .values{background:var(--white);}
+  .value-card{text-align:center;}
+  .value-card .card-icon{margin:0 auto 18px;}
+
+  /* ---------- Company ---------- */
+  .company{background:var(--near-black);color:var(--white);}
+  .company-inner{max-width:760px;}
+  .company h2{color:var(--white);font-size:clamp(1.9rem,3.6vw,2.5rem);margin-bottom:22px;}
+  .company p{color:var(--gray-300);font-size:1.05rem;margin-bottom:16px;}
+  .company-badges{display:flex;gap:1px;background:var(--border-dark);border:1px solid var(--border-dark);border-radius:var(--radius);overflow:hidden;margin-top:34px;}
+  .company-badge{flex:1;background:var(--panel);padding:20px;}
+  .company-badge strong{display:block;font-size:1.1rem;color:var(--white);font-family:'Manrope',sans-serif;}
+  .company-badge span{font-size:.8rem;color:var(--gray-500);}
+  @media(max-width:600px){.company-badges{flex-direction:column;}}
+
+  /* ---------- Why join ---------- */
+  .why{background:var(--white);}
+  .why-inner{display:grid;grid-template-columns:0.9fr 1.1fr;gap:56px;align-items:center;}
+  @media(max-width:900px){.why-inner{grid-template-columns:1fr;}}
+  .why-list{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border-light);border:1px solid var(--border-light);border-radius:var(--radius);overflow:hidden;}
+  @media(max-width:560px){.why-list{grid-template-columns:1fr;}}
+  .why-item{display:flex;gap:14px;align-items:flex-start;background:var(--white);padding:22px;}
+  .why-icon{width:26px;height:26px;flex-shrink:0;color:var(--near-black);margin-top:2px;}
+  .why-item h4{font-size:.94rem;margin-bottom:4px;color:var(--near-black);}
+  .why-item p{font-size:.84rem;color:var(--gray-500);}
+  .why-visual{background:var(--black);color:var(--white);border-radius:var(--radius);padding:48px 40px;text-align:left;}
+  .why-visual h3{font-size:1.6rem;margin-bottom:12px;}
+  .why-visual p{color:var(--gray-300);margin-bottom:30px;}
+
+  /* ---------- Stats ---------- */
+  .stats{background:var(--white);border-top:1px solid var(--border-light);border-bottom:1px solid var(--border-light);}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);}
+  @media(max-width:768px){.stats-grid{grid-template-columns:repeat(2,1fr);}}
+  .stat{text-align:center;padding:0 20px;position:relative;}
+  .stat:not(:last-child)::after{content:"";position:absolute;right:0;top:10%;height:80%;width:1px;background:var(--border-light);}
+  @media(max-width:768px){.stat:nth-child(2)::after{display:none;}}
+  .stat-num{font-family:'Manrope',sans-serif;font-weight:800;font-size:clamp(2.2rem,4vw,3.1rem);margin-bottom:6px;color:var(--near-black);}
+  .stat-label{color:var(--gray-500);font-weight:600;font-size:.86rem;letter-spacing:.02em;}
+
+  /* ---------- Leadership ---------- */
+  .leadership{background:var(--off-white);}
+  .leader-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border-light);border:1px solid var(--border-light);border-radius:var(--radius);overflow:hidden;}
+  @media(max-width:900px){.leader-grid{grid-template-columns:1fr;}}
+  .leader-card{background:var(--white);padding:36px;transition:background .25s ease;}
+  .leader-card:hover{background:var(--off-white);}
+  .leader-top{display:flex;align-items:center;gap:16px;margin-bottom:20px;}
+  .leader-avatar{width:58px;height:58px;border-radius:14px;flex-shrink:0;background:var(--near-black);color:var(--white);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.2rem;font-family:'Manrope',sans-serif;}
+  .leader-name{font-size:1.15rem;margin-bottom:2px;color:var(--near-black);}
+  .leader-alt{font-size:.78rem;color:var(--gray-500);font-style:italic;}
+  .leader-role{display:inline-block;background:var(--near-black);color:var(--white);font-size:.74rem;font-weight:700;padding:5px 12px;border-radius:999px;margin-bottom:16px;}
+  .leader-card p{color:var(--gray-500);font-size:.9rem;}
+  .leader-link{display:inline-flex;align-items:center;gap:8px;margin-top:18px;font-size:.84rem;font-weight:700;color:var(--near-black);border-bottom:1px solid var(--near-black);padding-bottom:2px;transition:opacity .2s ease;}
+  .leader-link:hover{opacity:.6;}
+  .leader-link svg{width:15px;height:15px;}
+
+  /* ---------- Contact ---------- */
+  .contact{background:var(--white);}
+  .contact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border-light);border:1px solid var(--border-light);border-radius:var(--radius);overflow:hidden;}
+  @media(max-width:900px){.contact-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.contact-grid{grid-template-columns:1fr;}}
+  .contact-card{background:var(--white);padding:30px;text-align:center;transition:background .25s ease;}
+  .contact-card:hover{background:var(--off-white);}
+  .contact-icon{width:38px;height:38px;margin:0 auto 16px;color:var(--near-black);}
+  .contact-card h4{font-size:.96rem;margin-bottom:6px;color:var(--near-black);}
+  .contact-card span{font-size:.82rem;color:var(--gray-500);word-break:break-word;}
+
+  /* ---------- CTA strip ---------- */
+  .cta-strip{background:var(--black);color:var(--white);text-align:center;padding:100px 0;}
+  .cta-strip h2{color:var(--white);font-size:clamp(1.9rem,3.4vw,2.5rem);margin-bottom:16px;}
+  .cta-strip p{color:var(--gray-300);margin-bottom:36px;font-size:1.05rem;}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--black);color:var(--gray-500);padding:64px 0 32px;border-top:1px solid var(--border-dark);}
+  .footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:40px;margin-bottom:48px;}
+  .footer-brand .logo{color:var(--white);}
+  .footer-brand p{max-width:320px;margin-top:14px;font-size:.88rem;color:var(--gray-500);}
+  .footer-social{display:flex;gap:12px;margin-top:22px;}
+  .social-icon{width:38px;height:38px;border-radius:9px;background:var(--panel);display:flex;align-items:center;justify-content:center;color:var(--gray-300);transition:background .2s ease, color .2s ease, transform .2s ease;border:1px solid var(--border-dark);}
+  .social-icon svg{width:17px;height:17px;}
+  .social-icon:hover{background:var(--white);color:var(--black);transform:translateY(-3px);}
+  .footer-links{display:flex;gap:64px;flex-wrap:wrap;}
+  .footer-col h5{color:var(--white);font-size:.86rem;margin-bottom:16px;font-family:'Manrope',sans-serif;}
+  .footer-col a{display:block;font-size:.86rem;color:var(--gray-500);margin-bottom:12px;transition:color .2s ease;}
+  .footer-col a:hover{color:var(--white);}
+  .footer-bottom{border-top:1px solid var(--border-dark);padding-top:28px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.8rem;color:var(--gray-500);}
+  .footer-bottom a{color:var(--gray-500);}
+  .footer-bottom a:hover{color:var(--white);}
+
+  /* ---------- Cookie banner ---------- */
+  #cookie-banner{
+    position:fixed;left:20px;right:20px;bottom:20px;max-width:520px;
+    background:var(--black);color:var(--white);border:1px solid var(--border-dark);
+    border-radius:16px;padding:24px;z-index:9998;box-shadow:0 20px 50px rgba(0,0,0,0.35);
+    transform:translateY(140%);transition:transform .5s cubic-bezier(.2,.8,.2,1);
+  }
+  #cookie-banner.show{transform:translateY(0);}
+  #cookie-banner p{font-size:.86rem;color:var(--gray-300);margin-bottom:18px;line-height:1.55;}
+  #cookie-banner strong{color:var(--white);}
+  .cookie-actions{display:flex;gap:12px;flex-wrap:wrap;}
+  .cookie-actions button{flex:1;min-width:120px;padding:11px 16px;border-radius:9px;font-weight:700;font-size:.84rem;cursor:pointer;border:1.5px solid transparent;}
+  #cookie-accept{background:var(--white);color:var(--black);}
+  #cookie-decline{background:transparent;color:var(--gray-300);border-color:rgba(255,255,255,0.25);}
+  @media(max-width:560px){#cookie-banner{left:12px;right:12px;bottom:12px;padding:20px;}}
+</style>
+</head>
+<body class="locked">
+
+<div class="grain"></div>
+
+<div id="intro">
+  <img src="https://files.catbox.moe/2kq4m0.jpg" alt="SYRIX VISION COMPANY logo">
+  <div class="intro-word"><h1>SYRIX VISION COMPANY</h1></div>
+  <div class="intro-line"></div>
+</div>
+
+<header id="site-header">
+  <nav>
+    <a href="#top" class="logo"><img src="https://files.catbox.moe/2kq4m0.jpg" alt="SYRIX VISION logo"> SYRIX VISION</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#domains">Fields</a></li>
+      <li><a href="#leadership">Leadership</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#join" class="nav-cta">Join Us</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-eyebrow reveal">International Tech Community</div>
+      <h1 class="reveal">Building the <em>Future</em><br>Through Technology.</h1>
+      <p class="lead reveal">SYRIX VISION COMPANY is a technology company and an international community bringing together developers, innovators and digital creators to build modern projects with real impact.</p>
+      <div class="hero-actions reveal">
+        <a href="#join" class="btn btn-primary-dark">Join the Community</a>
+        <a href="#domains" class="btn btn-outline-dark">View Our Work</a>
+      </div>
+      <div class="hero-meta reveal">
+        <div class="hero-meta-item"><strong>July 2026</strong><span>Founded</span></div>
+        <div class="hero-meta-item"><strong>10+</strong><span>Fields of expertise</span></div>
+        <div class="hero-meta-item"><strong>Global</strong><span>Community reach</span></div>
+        <div class="hero-meta-item"><strong>2030</strong><span>Vision horizon</span></div>
+      </div>
+    </div>
+    <div class="scroll-cue"><span>Scroll</span><div class="line"></div></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about light-section" id="about">
+    <div class="container about-grid">
+      <div class="reveal">
+        <div class="eyebrow-line">About Us</div>
+        <h2>About SYRIX VISION</h2>
+        <p>SYRIX VISION is a modern technology community founded by <strong>Dawens (Inconnu Boy Sensei)</strong>, Co-Founder and CEO, alongside <strong>DsPrimis</strong>, his right hand and Co-Founder.</p>
+        <p>Our goal is to bring together developers, innovators and digital creators from around the world to learn, collaborate and build useful solutions together.</p>
+        <p>We believe technology moves forward through shared knowledge, collaboration and innovation. SYRIX VISION is far more than a community of developers — it's a genuine tech ecosystem built on curiosity, excellence, professionalism, respect and teamwork.</p>
+      </div>
+      <div class="about-panel reveal">
+        <div class="founder-row">
+          <div class="founder-avatar">D</div>
+          <div><h4>Dawens (Inconnu Boy Sensei)</h4><span>CEO & Co-Founder</span></div>
+        </div>
+        <div class="founder-row">
+          <div class="founder-avatar">DP</div>
+          <div><h4>DsPrimis</h4><span>Co-Founder</span></div>
+        </div>
+        <div class="founder-row">
+          <div class="founder-avatar">K</div>
+          <div><h4>Klivens (Xenix)</h4><span>Chief Product Officer (CPO)</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section class="mission light-section" id="mission">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow-line">Our Mission</div>
+        <h2>What we help developers do</h2>
+        <p>Our mission is to give developers everywhere the tools and community to grow.</p>
+      </div>
+      <div class="card-grid cols-3">
+        <div class="card reveal"><svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 5.5C4 4.67 4.67 4 5.5 4H12v16H5.5A1.5 1.5 0 0 1 4 18.5V5.5Z"/><path d="M20 5.5C20 4.67 19.33 4 18.5 4H12v16h6.5a1.5 1.5 0 0 0 1.5-1.5V5.5Z"/></svg><h3>Learn</h3><p>Access knowledge, mentorship and real-world practice within an active community.</p></div>
+        <div class="card reveal"><svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="9" r="3"/><circle cx="16" cy="9" r="3"/><path d="M2 20c0-3 2.5-5 6-5s6 2 6 5"/><path d="M10 20c0-3 2.5-5 6-5s6 2 6 5"/></svg><h3>Collaborate</h3><p>Work alongside developers and creators from around the world on shared goals.</p></div>
+        <div class="card reveal"><svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a6 6 0 0 0-4 10.5c.6.6 1 1.4 1 2.5h6c0-1.1.4-1.9 1-2.5A6 6 0 0 0 12 2Z"/></svg><h3>Innovate</h3><p>Turn fresh ideas into working products through experimentation and iteration.</p></div>
+        <div class="card reveal"><svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><path d="M17 13v8M13 17h8"/></svg><h3>Build Open Source</h3><p>Contribute to and maintain projects that give back to the wider tech community.</p></div>
+        <div class="card reveal"><svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0-1.4 0L6.4 13.2a1 1 0 0 0-.3.7v3.7h3.7a1 1 0 0 0 .7-.3l6.9-6.9a1 1 0 0 0 0-1.4l-2.7-2.7Z"/><path d="M3 21h18"/></svg><h3>Create Useful Solutions</h3><p>Design and ship products that solve real problems for real people.</p></div>
+        <div class="card reveal"><svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 20V10M9 20V4M15 20v-7M21 20V13"/></svg><h3>Grow Skills</h3><p>Level up technical and professional skills through consistent, guided practice.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOMAINS -->
+  <section class="domains dark-cards" id="domains">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow-line">Our Fields</div>
+        <h2>Where we build</h2>
+        <p>A broad range of disciplines, all under one community.</p>
+      </div>
+      <div class="card-grid cols-5">
+        <div class="card reveal"><svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 4 6 4 9s-1.5 6.3-4 9c-2.5-2.7-4-6-4-9s1.5-6.3 4-9Z"/></svg><h3>Web Development</h3></div>
+        <div class="card reveal"><svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg><h3>Mobile Development</h3></div>
+        <div class="card reveal"><svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="9" cy="9" r="1"/><circle cx="15" cy="9" r="1"/><path d="M8 15c1 1 2.5 1.5 4 1.5s3-.5 4-1.5"/></svg><h3>Artificial Intelligence</h3></div>
+        <div class="card reveal"><svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 11 4.6-2.3 8-6 8-11V5l-8-3Z"/></svg><h3>Cybersecurity</h3></div>
+        <div class="card reveal"><svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 18a4 4 0 1 1 1-7.9A5 5 0 0 1 17 11a3.5 3.5 0 0 1 0 7H7Z"/></svg><h3>Cloud Computing</h3></div>
+        <div class="card reveal"><svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></svg><h3>DevOps</h3></div>
+        <div class="card reveal"><svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg><h3>UI / UX Design</h3></div>
+        <div class="card reveal"><svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M8 7.5 11 16M16 7.5 13 16"/></svg><h3>Blockchain</h3></div>
+        <div class="card reveal"><svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg><h3>Open Source</h3></div>
+        <div class="card reveal"><svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m7 9 3 3-3 3M12 15h5"/></svg><h3>Systems Programming</h3></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="values light-section" id="values">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow-line">Our Values</div>
+        <h2>What guides us</h2>
+      </div>
+      <div class="card-grid cols-5">
+        <div class="card value-card reveal"><svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0-1.4 0L6.4 13.2a1 1 0 0 0-.3.7v3.7h3.7a1 1 0 0 0 .7-.3l6.9-6.9a1 1 0 0 0 0-1.4l-2.7-2.7Z"/></svg><h3>Innovation</h3></div>
+        <div class="card value-card reveal"><svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m12 3 2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.2-5.4 3.2 1.3-6-4.6-4.1 6.1-.6L12 3Z"/></svg><h3>Excellence</h3></div>
+        <div class="card value-card reveal"><svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="9" r="3"/><circle cx="16" cy="9" r="3"/><path d="M2 20c0-3 2.5-5 6-5s6 2 6 5"/><path d="M10 20c0-3 2.5-5 6-5s6 2 6 5"/></svg><h3>Collaboration</h3></div>
+        <div class="card value-card reveal"><svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/></svg><h3>Professionalism</h3></div>
+        <div class="card value-card reveal"><svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.8 8.6c0 5-8.8 10.4-8.8 10.4S3.2 13.6 3.2 8.6a4.6 4.6 0 0 1 8.8-1.9 4.6 4.6 0 0 1 8.8 1.9Z"/></svg><h3>Respect</h3></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPANY -->
+  <section class="company" id="company">
+    <div class="container">
+      <div class="company-inner reveal">
+        <div class="eyebrow-line">The Company</div>
+        <h2>SYRIX VISION COMPANY</h2>
+        <p>SYRIX VISION COMPANY is a young technology company founded in late July 2026.</p>
+        <p>Our ambition is to build modern, useful and accessible digital solutions.</p>
+        <p>Our vision is to become an internationally recognized company by 2030, driven by innovation, teamwork and a genuine passion for technology.</p>
+        <div class="company-badges">
+          <div class="company-badge"><strong>July 2026</strong><span>Founded</span></div>
+          <div class="company-badge"><strong>2030</strong><span>Vision horizon</span></div>
+          <div class="company-badge"><strong>Global</strong><span>Community reach</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY JOIN -->
+  <section class="why light-section" id="join">
+    <div class="container why-inner">
+      <div class="why-visual reveal">
+        <h3>Why join SYRIX VISION?</h3>
+        <p>Become part of a growing international network of developers and creators.</p>
+        <a href="mailto:syrixcompany@gmail.com" class="btn btn-primary-dark">Join SYRIX VISION</a>
+      </div>
+      <div class="why-list">
+        <div class="why-item reveal"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 4 6 4 9s-1.5 6.3-4 9c-2.5-2.7-4-6-4-9s1.5-6.3 4-9Z"/></svg><div><h4>International Community</h4><p>Connect with members across countries and time zones.</p></div></div>
+        <div class="why-item reveal"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 5.5C4 4.67 4.67 4 5.5 4H12v16H5.5A1.5 1.5 0 0 1 4 18.5V5.5Z"/><path d="M20 5.5C20 4.67 19.33 4 18.5 4H12v16h6.5a1.5 1.5 0 0 0 1.5-1.5V5.5Z"/></svg><div><h4>Knowledge Sharing</h4><p>Learn directly from experienced peers and mentors.</p></div></div>
+        <div class="why-item reveal"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><path d="M17 13v8M13 17h8"/></svg><div><h4>Collaborative Projects</h4><p>Build real products as part of a team.</p></div></div>
+        <div class="why-item reveal"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v4M12 17v4M4.2 4.2l2.9 2.9M16.9 16.9l2.9 2.9M3 12h4M17 12h4M4.2 19.8l2.9-2.9M16.9 7.1l2.9-2.9"/></svg><div><h4>Learning Opportunities</h4><p>Access resources built for continuous growth.</p></div></div>
+        <div class="why-item reveal"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 20V10M9 20V4M15 20v-7M21 20V13"/></svg><div><h4>Skill Development</h4><p>Sharpen your craft through consistent practice.</p></div></div>
+        <div class="why-item reveal"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a6 6 0 0 0-4 10.5c.6.6 1 1.4 1 2.5h6c0-1.1.4-1.9 1-2.5A6 6 0 0 0 12 2Z"/></svg><div><h4>Constant Innovation</h4><p>Work at the edge of what's possible in tech.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat reveal"><div class="stat-num" data-count="500">0</div><div class="stat-label">Members</div></div>
+        <div class="stat reveal"><div class="stat-num" data-count="40">0</div><div class="stat-label">Projects</div></div>
+        <div class="stat reveal"><div class="stat-num" data-count="120">0</div><div class="stat-label">Developers</div></div>
+        <div class="stat reveal"><div class="stat-num" data-count="60">0</div><div class="stat-label">Open Source Contributions</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP -->
+  <section class="leadership" id="leadership">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow-line">Leadership Team</div>
+        <h2>Meet the leaders behind SYRIX VISION COMPANY</h2>
+        <p>The founders and executives leading SYRIX VISION COMPANY's mission and product direction.</p>
+      </div>
+      <div class="leader-grid">
+        <div class="leader-card reveal">
+          <div class="leader-top"><div class="leader-avatar">D</div><div><h3 class="leader-name">Dawens</h3><div class="leader-alt">"Inconnu Boy Sensei"</div></div></div>
+          <span class="leader-role">CEO & Co-Founder</span>
+          <p>Dawens, also known as Inconnu Boy Sensei, is the Chief Executive Officer and Co-Founder of SYRIX VISION COMPANY. He leads the company's overall strategy and vision, guiding SYRIX VISION's growth into an internationally recognized technology company and community.</p>
+          <a href="https://github.com/INCONNU-BOY" target="_blank" rel="noopener" class="leader-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.4-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-4.9 0-1.1.4-2 1-2.6-.1-.3-.5-1.3.1-2.7 0 0 .8-.3 2.7 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .6 1.4.2 2.4.1 2.7.6.6 1 1.5 1 2.6 0 3.8-2.4 4.6-4.6 4.9.4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 12 2Z"/></svg>github.com/INCONNU-BOY</a>
+        </div>
+        <div class="leader-card reveal">
+          <div class="leader-top"><div class="leader-avatar">DP</div><div><h3 class="leader-name">DsPrimis</h3><div class="leader-alt">Right hand to the CEO</div></div></div>
+          <span class="leader-role">Co-Founder</span>
+          <p>DsPrimis is Co-Founder of SYRIX VISION COMPANY and right-hand partner to CEO Dawens. He plays a central role in shaping the community and supporting the company's day-to-day direction and growth.</p>
+          <a href="https://github.com/DEVPRIMIS" target="_blank" rel="noopener" class="leader-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.4-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-4.9 0-1.1.4-2 1-2.6-.1-.3-.5-1.3.1-2.7 0 0 .8-.3 2.7 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .6 1.4.2 2.4.1 2.7.6.6 1 1.5 1 2.6 0 3.8-2.4 4.6-4.6 4.9.4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 12 2Z"/></svg>github.com/DEVPRIMIS</a>
+        </div>
+        <div class="leader-card reveal">
+          <div class="leader-top"><div class="leader-avatar">K</div><div><h3 class="leader-name">Klivens</h3><div class="leader-alt">Also known as Xenix</div></div></div>
+          <span class="leader-role">Chief Product Officer (CPO)</span>
+          <p>Klivens, known within the community as Xenix, serves as Chief Product Officer at SYRIX VISION COMPANY, overseeing product management and the development of new ideas — turning concepts into products that serve the SYRIX VISION community.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact light-section" id="contact">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow-line">Get in Touch</div>
+        <h2>Contact SYRIX VISION COMPANY</h2>
+        <p>Reach out to us or follow our channels below.</p>
+      </div>
+      <div class="contact-grid">
+        <a href="mailto:syrixcompany@gmail.com" class="contact-card reveal">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
+          <h4>Email</h4><span>syrixcompany@gmail.com</span>
+        </a>
+        <a href="https://github.com/SYRIX-COMPANY" target="_blank" rel="noopener" class="contact-card reveal">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.4-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-4.9 0-1.1.4-2 1-2.6-.1-.3-.5-1.3.1-2.7 0 0 .8-.3 2.7 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .6 1.4.2 2.4.1 2.7.6.6 1 1.5 1 2.6 0 3.8-2.4 4.6-4.6 4.9.4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 12 2Z"/></svg>
+          <h4>GitHub</h4><span>SYRIX-COMPANY</span>
+        </a>
+        <a href="https://whatsapp.com/channel/0029VbCth9A3rZZjleAsOd2m" target="_blank" rel="noopener" class="contact-card reveal">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.6L3 20l1-5.4A8.5 8.5 0 1 1 21 11.5Z"/><path d="M8.5 10.5c.3 2.4 2.6 4.7 5 5"/></svg>
+          <h4>WhatsApp Channel</h4><span>Join our channel</span>
+        </a>
+        <a href="https://www.youtube.com/@syrixcompanyvision" target="_blank" rel="noopener" class="contact-card reveal">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="m10.5 9.5 4.5 2.5-4.5 2.5v-5Z"/></svg>
+          <h4>YouTube</h4><span>@syrixcompanyvision</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <section class="cta-strip">
+    <div class="container">
+      <h2 class="reveal">Ready to build the future with us?</h2>
+      <p class="reveal">Join a growing international community of developers and innovators.</p>
+      <a href="mailto:syrixcompany@gmail.com" class="btn btn-primary-dark reveal">Join the Community</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#top" class="logo"><img src="https://files.catbox.moe/2kq4m0.jpg" alt="SYRIX VISION logo"> SYRIX VISION</a>
+        <p>SYRIX VISION COMPANY — an international technology company and community building the future through code, collaboration and innovation.</p>
+        <div class="footer-social">
+          <a href="https://github.com/SYRIX-COMPANY" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.4-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-4.9 0-1.1.4-2 1-2.6-.1-.3-.5-1.3.1-2.7 0 0 .8-.3 2.7 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .6 1.4.2 2.4.1 2.7.6.6 1 1.5 1 2.6 0 3.8-2.4 4.6-4.6 4.9.4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 12 2Z"/></svg></a>
+          <a href="https://whatsapp.com/channel/0029VbCth9A3rZZjleAsOd2m" target="_blank" rel="noopener" class="social-icon" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.6L3 20l1-5.4A8.5 8.5 0 1 1 21 11.5Z"/><path d="M8.5 10.5c.3 2.4 2.6 4.7 5 5"/></svg></a>
+          <a href="https://www.youtube.com/@syrixcompanyvision" target="_blank" rel="noopener" class="social-icon" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="m10.5 9.5 4.5 2.5-4.5 2.5v-5Z"/></svg></a>
+          <a href="https://www.instagram.com/syrixcompany" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col"><h5>Company</h5><a href="#about">About</a><a href="#leadership">Leadership</a><a href="#company">Vision</a></div>
+        <div class="footer-col"><h5>Community</h5><a href="#domains">Fields</a><a href="#values">Values</a><a href="#join">Join Us</a></div>
+        <div class="footer-col"><h5>Connect</h5><a href="mailto:syrixcompany@gmail.com">Email</a><a href="https://github.com/SYRIX-COMPANY" target="_blank" rel="noopener">GitHub</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SYRIX VISION COMPANY. All rights reserved.</span>
+      <span>Building technology together. · <a href="#" id="reopen-cookie">Cookie settings</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- Cookie consent -->
+<div id="cookie-banner">
+  <p><strong>We use cookies.</strong> SYRIX VISION COMPANY uses essential cookies to run this site and optional cookies to understand how it's used. You can accept or decline non-essential cookies at any time.</p>
+  <div class="cookie-actions">
+    <button id="cookie-decline">Decline</button>
+    <button id="cookie-accept">Accept</button>
+  </div>
+</div>
+
+<script>
+  // Intro sequence
+  window.addEventListener('load', () => {
+    const intro = document.getElementById('intro');
+    setTimeout(() => {
+      intro.classList.add('hide');
+      document.body.classList.remove('locked');
+      setTimeout(() => intro.remove(), 1000);
+    }, 1900);
+  });
+
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 12));
+
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('is-visible'); io.unobserve(entry.target); }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+
+  const counters = document.querySelectorAll('[data-count]');
+  const counterIO = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseInt(el.getAttribute('data-count'), 10);
+        const duration = 1400;
+        const start = performance.now();
+        function tick(now) {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.floor(eased * target) + (progress === 1 ? '+' : '');
+          if (progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+        counterIO.unobserve(el);
+      }
+    });
+  }, { threshold: 0.4 });
+  counters.forEach(el => counterIO.observe(el));
+
+  // Cookie consent
+  const cookieBanner = document.getElementById('cookie-banner');
+  const acceptBtn = document.getElementById('cookie-accept');
+  const declineBtn = document.getElementById('cookie-decline');
+  const reopenLink = document.getElementById('reopen-cookie');
+
+  function showCookieBanner() {
+    setTimeout(() => cookieBanner.classList.add('show'), 2200);
+  }
+  try {
+    const consent = localStorage.getItem('syrix_cookie_consent');
+    if (!consent) showCookieBanner();
+  } catch (e) { showCookieBanner(); }
+
+  acceptBtn.addEventListener('click', () => {
+    try { localStorage.setItem('syrix_cookie_consent', 'accepted'); } catch (e) {}
+    cookieBanner.classList.remove('show');
+  });
+  declineBtn.addEventListener('click', () => {
+    try { localStorage.setItem('syrix_cookie_consent', 'declined'); } catch (e) {}
+    cookieBanner.classList.remove('show');
+  });
+  reopenLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    cookieBanner.classList.add('show');
+  });
+</script>
+
+</body>
+</html>
