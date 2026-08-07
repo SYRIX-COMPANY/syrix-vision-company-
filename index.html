@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -125,13 +126,63 @@
   .nav-links a:hover{color:var(--white);}
   .nav-cta{background:var(--white);color:var(--black) !important;padding:10px 20px;border-radius:10px;font-weight:700;font-size:.86rem;transition:transform .2s ease;}
   .nav-cta:hover{transform:translateY(-1px);}
-  .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;}
-  .nav-toggle span{display:block;width:22px;height:2px;background:var(--white);margin:5px 0;border-radius:2px;}
+  .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:102;position:relative;}
+  .nav-toggle span{display:block;width:22px;height:2px;background:var(--white);margin:5px 0;border-radius:2px;transition:transform .3s ease, opacity .3s ease;}
+  .nav-toggle.active span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .nav-toggle.active span:nth-child(2){opacity:0;}
+  .nav-toggle.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .drawer-brand{display:none;}
+  .nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:100;opacity:0;transition:opacity .35s ease;backdrop-filter:blur(2px);}
+  .nav-overlay.open{display:block;opacity:1;}
+
   @media(max-width:860px){
-    .nav-links{position:fixed;top:66px;left:0;right:0;background:var(--black);flex-direction:column;padding:24px;gap:18px;border-bottom:1px solid var(--border-dark);transform:translateY(-130%);transition:transform .3s ease;}
-    .nav-links.open{transform:translateY(0);}
-    .nav-toggle{display:block;}
+    /* Kill the bar entirely: header becomes an invisible, click-through layer */
+    header{background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom:none;pointer-events:none;}
+    header.scrolled{border-bottom-color:transparent;}
+    nav{padding:0;pointer-events:none;justify-content:flex-start;max-width:none;}
+    .logo{display:none;}
+
+    /* Floating hamburger only — no bar, no background block */
+    .nav-toggle{
+      display:block;position:fixed;top:18px;left:18px;
+      background:transparent;padding:10px;pointer-events:auto;
+    }
+    .nav-toggle span{filter:drop-shadow(0 1px 2px rgba(0,0,0,0.55)) drop-shadow(0 0 8px rgba(0,0,0,0.35));}
+
+    .nav-links{
+      position:fixed;top:0;left:0;bottom:0;right:auto;
+      width:80%;max-width:320px;height:100%;
+      background:var(--black);flex-direction:column;align-items:stretch;
+      padding:28px 22px;gap:0;border-right:1px solid var(--border-dark);
+      transform:translateX(-100%);
+      transition:transform .4s cubic-bezier(.22,.68,0,1);
+      z-index:101;overflow-y:auto;box-shadow:0 0 60px rgba(0,0,0,0.5);
+      pointer-events:auto;
+    }
+    .nav-links.open{transform:translateX(0);}
+    .drawer-brand{
+      display:flex;align-items:center;gap:12px;
+      padding:6px 6px 22px;margin-bottom:14px;
+      border-bottom:1px solid var(--border-dark);
+    }
+    .drawer-brand img{width:36px;height:36px;border-radius:10px;object-fit:cover;}
+    .drawer-brand span{font-family:'Manrope',sans-serif;font-weight:800;color:var(--white);font-size:1.05rem;}
+    .nav-links li{width:100%;}
+    .nav-links a{
+      display:flex;align-items:center;gap:14px;
+      padding:15px 10px;font-size:.98rem;color:var(--gray-100);
+      border-bottom:1px solid rgba(255,255,255,0.06);
+      border-radius:10px;transition:background .2s ease, color .2s ease, padding-left .2s ease;
+    }
+    .nav-links a svg{width:19px;height:19px;flex-shrink:0;color:var(--gray-500);transition:color .2s ease;}
+    .nav-links a:hover, .nav-links a:active{background:rgba(255,255,255,0.06);color:var(--white);padding-left:16px;}
+    .nav-links a:hover svg, .nav-links a:active svg{color:var(--white);}
+    .nav-links li:last-child a{border-bottom:none;}
+    .nav-cta{display:flex;margin-top:16px;text-align:center;justify-content:center;color:var(--black) !important;}
+    .nav-cta svg{color:var(--black) !important;}
+    .nav-links a.nav-cta:hover{background:var(--white);padding-left:10px;}
   }
+
 
   /* ---------- Buttons ---------- */
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 30px;border-radius:10px;font-weight:700;font-size:.95rem;cursor:pointer;border:1.5px solid transparent;transition:transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;}
@@ -325,15 +376,18 @@
 <header id="site-header">
   <nav>
     <a href="#top" class="logo"><img src="https://files.catbox.moe/2kq4m0.jpg" alt="SYRIX VISION logo"> SYRIX VISION</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#about">About</a></li>
-      <li><a href="#domains">Fields</a></li>
-      <li><a href="#leadership">Leadership</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="#join" class="nav-cta">Join Us</a></li>
+      <li class="drawer-brand"><img src="https://files.catbox.moe/2kq4m0.jpg" alt="SYRIX VISION logo"><span>SYRIX VISION</span></li>
+      <li><a href="#top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m3 11 9-7 9 7"/><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9"/></svg>Home</a></li>
+      <li><a href="#about"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>About</a></li>
+      <li><a href="#domains"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg>Projects</a></li>
+      <li><a href="#leadership"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="9" r="3"/><circle cx="16" cy="9" r="3"/><path d="M2 20c0-3 2.5-5 6-5s6 2 6 5"/><path d="M10 20c0-3 2.5-5 6-5s6 2 6 5"/></svg>Team</a></li>
+      <li><a href="#contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>Contact</a></li>
+      <li><a href="#join" class="nav-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 5v14M5 12h14"/></svg>Join Us</a></li>
     </ul>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
   </nav>
+  <div class="nav-overlay" id="navOverlay"></div>
 </header>
 
 <main id="top">
@@ -511,7 +565,7 @@
         <div class="leader-card reveal">
           <div class="leader-top"><div class="leader-avatar">DP</div><div><h3 class="leader-name">DsPrimis</h3><div class="leader-alt">Right hand to the CEO</div></div></div>
           <span class="leader-role">Co-Founder</span>
-          <p>DsPrimis is Co-Founder of SYRIX VISION COMPANY and right-hand partner to CEO Dawens. He plays a central role in shaping the community and supporting the company's day-to-day direction and growth.</p>
+          <p>DsPrimis is Co-Founder of SYRIX VISION COMPANY and right-hand partner to CEO. He plays a central role in shaping the community and supporting the company's day-to-day direction and growth.</p>
           <a href="https://github.com/DEVPRIMIS" target="_blank" rel="noopener" class="leader-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.4-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-4.9 0-1.1.4-2 1-2.6-.1-.3-.5-1.3.1-2.7 0 0 .8-.3 2.7 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .6 1.4.2 2.4.1 2.7.6.6 1 1.5 1 2.6 0 3.8-2.4 4.6-4.6 4.9.4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 12 2Z"/></svg>github.com/DEVPRIMIS</a>
         </div>
         <div class="leader-card reveal">
@@ -614,8 +668,28 @@
 
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
-  navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
-  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+  const navOverlay = document.getElementById('navOverlay');
+
+  function openMenu() {
+    navLinks.classList.add('open');
+    navOverlay.classList.add('open');
+    navToggle.classList.add('active');
+    navToggle.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('locked');
+  }
+  function closeMenu() {
+    navLinks.classList.remove('open');
+    navOverlay.classList.remove('open');
+    navToggle.classList.remove('active');
+    navToggle.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('locked');
+  }
+  navToggle.addEventListener('click', () => {
+    navLinks.classList.contains('open') ? closeMenu() : openMenu();
+  });
+  navOverlay.addEventListener('click', closeMenu);
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
 
   const revealEls = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
